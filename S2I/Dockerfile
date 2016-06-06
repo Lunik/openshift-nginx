@@ -16,6 +16,7 @@ LABEL io.openshift.s2i.scripts-url="/tmp/s2i-scripts/"
 # RUN yum install -y ... && yum clean all -y
 
 COPY ./.s2i/bin/ /tmp/s2i-scripts/
+ENV PATH /tmp/s2i-scripts/:$PATH
 
 # Set NGINXPATH env
 ENV NGINXPATH /usr/local/nginx/html
