@@ -1,5 +1,5 @@
 #
-FROM nginx
+FROM openshift/base-centos7
 
 # Maintainer name in the image metadata
 MAINTAINER Guillaume Martinez <guillaume.lunik@gmail.com>
@@ -13,10 +13,12 @@ LABEL io.openshift.tags="builder,1.0.0,nginx"
 LABEL io.openshift.s2i.scripts-url="image:///tmp/s2i-scripts/"
 
 # Install required packages here:
-# RUN yum install -y ... && yum clean all -y
+RUN INSTALL_PKGS="nginx"
+RUN yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS
+RUN rpm -V $INSTALL_PKGS
+RUN yum clean all -y
 
 COPY ./.s2i/bin/ /tmp/s2i-scripts/
-ENV PATH /tmp/s2i-scripts/:$PATH
 
 # Set NGINXPATH env
 ENV NGINXPATH /usr/share/nginx/html
