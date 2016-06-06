@@ -6,4 +6,5 @@ if [ "$(ls /tmp/s2i-scripts//artifacts/ 2>/dev/null)" ]; then
 fi
 
 # move the application source
+rm $NGINXPATH/*
 mv /tmp/src $NGINXPATH/.
