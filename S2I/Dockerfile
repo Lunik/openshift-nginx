@@ -23,6 +23,3 @@ ENV NGINXPATH /usr/share/nginx/html
 
 # Set the default port for applications built using this image
 EXPOSE 8080
-# Remove nginx exposed ports
-UNEXPOSE 80
-UNEXPOSE 443
