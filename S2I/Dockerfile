@@ -13,9 +13,8 @@ LABEL io.openshift.tags="builder,1.0.0,nginx"
 LABEL io.openshift.s2i.scripts-url="image:///tmp/s2i-scripts/"
 
 # Install required packages here:
-RUN INSTALL_PKGS="nginx"
-RUN yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS
-RUN rpm -V $INSTALL_PKGS
+RUN yum install -y --setopt=tsflags=nodocs nginx
+RUN rpm -V nginx
 RUN yum clean all -y
 
 COPY ./.s2i/bin/ /tmp/s2i-scripts/
