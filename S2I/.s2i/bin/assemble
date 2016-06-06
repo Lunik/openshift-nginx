@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # restore build artifacts
-if [ "$(ls /tmp/s2i/artifacts/ 2>/dev/null)" ]; then
-    mv /tmp/s2i/artifacts/* $NGINXPATH/.
+if [ "$(ls /tmp/s2i-scripts//artifacts/ 2>/dev/null)" ]; then
+    mv /tmp/s2i-scripts/artifacts/* $NGINXPATH/.
 fi
 
 # move the application source
-mv /tmp/s2i/src $NGINXPATH/.
+mv /tmp/s2i-scripts/src $NGINXPATH/.
