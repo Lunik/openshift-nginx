@@ -14,6 +14,8 @@ LABEL io.k8s.description="Platform for building html web application" \
 # Install required packages here:
 # RUN yum install -y ... && yum clean all -y
 
+COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
+
 # Set NGINXPATH env
 ENV NGINXPATH /usr/local/nginx/html
 
