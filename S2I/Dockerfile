@@ -19,7 +19,7 @@ COPY ./.s2i/bin/ /tmp/s2i-scripts/
 ENV PATH /tmp/s2i-scripts/:$PATH
 
 # Set NGINXPATH env
-ENV NGINXPATH /usr/local/nginx/html
+ENV NGINXPATH /usr/share/nginx/html
 
 # Set the default port for applications built using this image
 EXPOSE 8080
